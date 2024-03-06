@@ -1,14 +1,11 @@
+import { composeWithDevTools } from '@redux-devtools/extension';
 import { legacy_createStore as createStore } from 'redux';
-import {composeWithDevTools} from "redux-devtools-extension";
-import rootReducer from "./rootReducer";
 
-const store = createStore(
-    rootReducer,
-    composeWithDevTools()
-);
+import rootReducer from './rootReducer';
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+const store = createStore(rootReducer, composeWithDevTools());
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
-
